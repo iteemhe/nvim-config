@@ -1,4 +1,5 @@
 -- order matters
+require("plugins.config.nvim-treesitter")
 require("plugins.config.nvim-cmp")
 require("plugins.config.null-ls")
 require("plugins.config.lspsaga")
@@ -7,6 +8,15 @@ require("plugins.config.lualine")
 return require("packer").startup(function(use)
 	-- instead, we use a package mamager
 	-- use 'wbthomason/packer.nvim'
+
+	-- nvim-treesitter
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = function()
+			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+			ts_update()
+		end,
+	})
 
 	-- nvim-cmp
 	use("neovim/nvim-lspconfig")
