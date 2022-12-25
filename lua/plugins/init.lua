@@ -3,6 +3,7 @@ require("plugins.config.nvim-treesitter")
 require("plugins.config.nvim-cmp")
 require("plugins.config.null-ls")
 require("plugins.config.lspsaga")
+require("plugins.config.telescope")
 require("plugins.config.lualine")
 
 return require("packer").startup(function(use)
