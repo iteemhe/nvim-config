@@ -5,6 +5,8 @@ require("plugins.config.null-ls")
 require("plugins.config.lspsaga")
 require("plugins.config.telescope")
 require("plugins.config.lualine")
+require("plugins.config.barbar")
+require("plugins.config.nvim-tree")
 
 return require("packer").startup(function(use)
 	-- instead, we use a package mamager
@@ -44,6 +46,16 @@ return require("packer").startup(function(use)
 		-- tag = "0.1.0",
 		-- or                            , branch = '0.1.x',
 		requires = { "nvim-lua/plenary.nvim" },
+	})
+
+	-- tab line
+	use({ "romgrk/barbar.nvim", requires = { "nvim-tree/nvim-web-devicons" } })
+	-- file explorer
+	use({
+		"nvim-tree/nvim-tree.lua",
+		requires = {
+			"nvim-tree/nvim-web-devicons", -- optional, for file icons
+		},
 	})
 
 	use({
