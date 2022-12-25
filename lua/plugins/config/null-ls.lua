@@ -9,7 +9,7 @@ local sources = {
 
 	null_ls.builtins.diagnostics.todo_comments,
 	null_ls.builtins.diagnostics.trail_space,
-	null_ls.builtins.diagnostics.codespell,
+	-- null_ls.builtins.diagnostics.codespell,
 
 	null_ls.builtins.diagnostics.cppcheck,
 	null_ls.builtins.diagnostics.eslint,

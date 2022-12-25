@@ -14,7 +14,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 require("lsp_signature").setup({
 	-- log_path = vim.fn.expand("$HOME") .. "/tmp/sig.log",
 	debug = true,
-	hint_enable = false,
+	hint_enable = true,
 	handler_opts = { border = "single" },
 	max_width = 80,
 })
@@ -87,7 +87,7 @@ require("clangd_extensions").setup({
 	extensions = {
 		-- defaults:
 		-- Automatically set inlay hints (type hints)
-		autoSetHints = true,
+		autoSetHints = true, -- set to fales due to lsp-inlayhints
 		-- These apply to the default ClangdSetInlayHints command
 		inlay_hints = {
 			-- Only show inlay hints for the current line

@@ -7,6 +7,7 @@ require("plugins.config.telescope")
 require("plugins.config.lualine")
 require("plugins.config.barbar")
 require("plugins.config.nvim-tree")
+-- require("plugins.config.lsp-inlayhints")
 
 return require("packer").startup(function(use)
 	-- instead, we use a package mamager
@@ -47,6 +48,8 @@ return require("packer").startup(function(use)
 		-- or                            , branch = '0.1.x',
 		requires = { "nvim-lua/plenary.nvim" },
 	})
+
+	-- use("lvimuser/lsp-inlayhints.nvim")
 
 	-- tab line
 	use({ "romgrk/barbar.nvim", requires = { "nvim-tree/nvim-web-devicons" } })

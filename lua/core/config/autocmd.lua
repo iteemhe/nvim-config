@@ -19,3 +19,12 @@ api.nvim_create_autocmd({ "FileType" }, {
 		-- opt.comments.append("f://")
 	end,
 })
+
+api.nvim_create_autocmd({ "TextYankPost" }, {
+	desc = "Hightlight Yanked Text",
+	callback = function()
+		vim.highlight.on_yank({
+			timeout = 150,
+		})
+	end,
+})
