@@ -171,4 +171,7 @@ require("clangd_extensions").setup({
 })
 
 -- Haskell
-require("lspconfig").hls.setup({})
+lspconfig.hls.setup({})
+
+-- Python
+lspconfig.pyright.setup({})

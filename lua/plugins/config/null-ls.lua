@@ -1,17 +1,19 @@
 local null_ls = require("null-ls")
 
 local sources = {
-	null_ls.builtins.formatting.clang_format,
-	null_ls.builtins.formatting.stylua,
-	null_ls.builtins.formatting.codespell,
-	null_ls.builtins.formatting.beautysh,
-	null_ls.builtins.formatting.black,
+	null_ls.builtins.formatting.clang_format, -- C/C++ formatter
+	null_ls.builtins.formatting.stylua, -- Lua format
+	null_ls.builtins.formatting.black, -- Python formatter
+	--	null_ls.builtins.formatting.codespell,
+	-- null_ls.builtins.formatting.beautysh,
 
-	null_ls.builtins.diagnostics.eslint,
-	null_ls.builtins.diagnostics.cppcheck,
-	null_ls.builtins.diagnostics.zsh,
 	null_ls.builtins.diagnostics.todo_comments,
 	null_ls.builtins.diagnostics.trail_space,
+	null_ls.builtins.diagnostics.codespell,
+
+	null_ls.builtins.diagnostics.cppcheck,
+	null_ls.builtins.diagnostics.eslint,
+	null_ls.builtins.diagnostics.zsh,
 	null_ls.builtins.diagnostics.tsc,
 
 	null_ls.builtins.completion.spell,
@@ -19,15 +21,17 @@ local sources = {
 }
 
 -- signla nvim to update in insert mode
--- vim.diagnostic.config.update_in_insert = true
+--[[ vim.diagnostic.config.update_in_insert = true
 vim.diagnostic.config({
-	update_in_insert = true,
+    update_in_insert = true,
 })
+]]
 
 local format_on_save = vim.api.nvim_create_augroup("LspFormatting", {})
+
 require("null-ls").setup({
 	temp_dir = "/tmp",
-	update_in_insert = true,
+	update_in_insert = false,
 	sources = sources,
 	-- you can reuse a shared lspconfig on_attach callback here
 	on_attach = function(client, bufnr)
