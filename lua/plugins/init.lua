@@ -1,8 +1,8 @@
 -- order matters
-require "plugins.config.nvim-cmp"
-require "plugins.config.null-ls"
-require "plugins.config.lspsaga"
-require "plugins.config.lualine"
+require("plugins.config.nvim-cmp")
+require("plugins.config.null-ls")
+require("plugins.config.lspsaga")
+require("plugins.config.lualine")
 
 return require("packer").startup(function(use)
 	-- instead, we use a package mamager

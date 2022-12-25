@@ -2,9 +2,9 @@ local keymap = vim.keymap.set
 local saga = require("lspsaga")
 
 saga.init_lsp_saga({
-    code_action_lightbulb = {
-        enable = false,
-    },
+	code_action_lightbulb = {
+		enable = false,
+	},
 })
 
 -- Lsp finder find the symbol definition implement reference
@@ -37,10 +37,10 @@ keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 
 -- Only jump to error
 keymap("n", "[E", function()
-    require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 keymap("n", "]E", function()
-    require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 
 -- Outline

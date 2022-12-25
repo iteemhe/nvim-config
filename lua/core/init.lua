@@ -1,5 +1,5 @@
-require "core.config.autocmd"
-require "core.config.colors"
-require "core.config.keymaps"
-require "core.config.options"
-require "core.config.warning"
+require("core.config.autocmd")
+require("core.config.colors")
+require("core.config.keymaps")
+require("core.config.options")
+require("core.config.warning")

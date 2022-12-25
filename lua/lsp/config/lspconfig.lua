@@ -169,3 +169,6 @@ require("clangd_extensions").setup({
 		},
 	},
 })
+
+-- Haskell
+require("lspconfig").hls.setup({})

@@ -1,6 +1,6 @@
 -- plugins
-require "plugins.init"
+require("plugins.init")
 -- lsp and autocompeletion
-require "lsp.init"
+require("lsp.init")
 -- configs
-require "core.init"
+require("core.init")
