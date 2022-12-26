@@ -8,6 +8,7 @@ require("plugins.config.lualine")
 require("plugins.config.barbar")
 require("plugins.config.nvim-tree")
 -- require("plugins.config.lsp-inlayhints")
+require("plugins.config.symbols-outline")
 
 return require("packer").startup(function(use)
 	-- instead, we use a package mamager
@@ -50,6 +51,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- use("lvimuser/lsp-inlayhints.nvim")
+	use("simrat39/symbols-outline.nvim")
 
 	-- tab line
 	use({ "romgrk/barbar.nvim", requires = { "nvim-tree/nvim-web-devicons" } })

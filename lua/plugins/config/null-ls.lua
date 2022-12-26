@@ -4,6 +4,7 @@ local sources = {
 	null_ls.builtins.formatting.clang_format, -- C/C++ formatter
 	null_ls.builtins.formatting.stylua, -- Lua format
 	null_ls.builtins.formatting.black, -- Python formatter
+	null_ls.builtins.formatting.prettier,
 	--	null_ls.builtins.formatting.codespell,
 	-- null_ls.builtins.formatting.beautysh,
 

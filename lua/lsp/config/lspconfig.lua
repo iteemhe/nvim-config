@@ -175,3 +175,6 @@ lspconfig.hls.setup({})
 
 -- Python
 lspconfig.pyright.setup({})
+
+-- Markdown
+lspconfig.marksman.setup({})
