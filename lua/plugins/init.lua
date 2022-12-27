@@ -116,9 +116,6 @@ local plugins = {
 		config = function()
 			require("plugins.config.lsp_signature")
 		end,
-		dependencies = {
-			"folke/noice.nvim",
-		},
 	},
 
 	-- lsp -> clangd
@@ -165,7 +162,7 @@ local plugins = {
 	-- Packer
 	{
 		"folke/noice.nvim",
-		lazy = false,
+		event = "VeryLazy",
 		config = function()
 			require("plugins.config.noice")
 		end,

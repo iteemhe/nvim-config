@@ -21,6 +21,7 @@ vim.opt.scrolloff = 5
 vim.opt.sidescrolloff = 5
 
 vim.opt.signcolumn = "yes"
+vim.opt.cmdheight = 0
 
 --NOTE: nvim-tree
 
