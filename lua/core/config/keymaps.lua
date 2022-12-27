@@ -2,15 +2,10 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 --NOTE: basic maps
-map("i", "<C-h>", "<Left>", opts)
-map("i", "<C-j>", "<Down>", opts)
-map("i", "<C-k>", "<Up>", opts)
-map("i", "<C-l>", "<Right>", opts)
-
-map("c", "<C-h>", "<Left>", opts)
-map("c", "<C-j>", "<Down>", opts)
-map("c", "<C-k>", "<Up>", opts)
-map("c", "<C-l>", "<Right>", opts)
+map("!", "<C-h>", "<Left>", opts)
+map("!", "<C-j>", "<Down>", opts)
+map("!", "<C-k>", "<Up>", opts)
+map("!", "<C-l>", "<Right>", opts)
 
 map("n", "<Leader>s", ":w<CR>", opts)
 map("n", "<Leader>w", ":w<CR>", opts)
