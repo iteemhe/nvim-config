@@ -176,11 +176,26 @@ require("clangd_extensions").setup({
 	},
 })
 
+-- Rust
+lspconfig.rust_analyzer.setup({
+	cmd = { "/home/jiahaohe/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rust-analyzer" },
+})
+
 -- Haskell
 lspconfig.hls.setup({})
 
 -- Python
-lspconfig.pyright.setup({})
+lspconfig.pyright.setup({
+	python = {
+		analysis = {
+			autoImportCompletion = true,
+			autoSearchPaths = true,
+			diagnosticMode = "openFilesOnly",
+			typeCheckingMode = "strict",
+			useLibraryCodeForTypes = true,
+		},
+	},
+})
 
 -- Markdown
 lspconfig.marksman.setup({})
