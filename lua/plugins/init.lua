@@ -35,7 +35,18 @@ local plugins = {
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
-    -- bufferline
+    --[[ bufferline
+    {
+        "akinsho/bufferline.nvim",
+        lazy = false,
+        dev = true,
+        config = function()
+            require("plugins.config.bufferline")
+        end,
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+    ]]
+
     {
         "romgrk/barbar.nvim",
         -- event = "VeryLazy",
