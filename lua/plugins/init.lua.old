@@ -1,16 +1,4 @@
--- order matters
-require("plugins.config.nvim-treesitter")
-require("plugins.config.nvim-cmp")
-require("plugins.config.null-ls")
-require("plugins.config.lspsaga")
-require("plugins.config.telescope")
-require("plugins.config.lualine")
-require("plugins.config.nvim-tree")
-require("plugins.config.barbar")
--- require("plugins.config.lsp-inlayhints")
-require("plugins.config.symbols-outline")
-
-return require("packer").startup(function(use)
+require("packer").startup(function(use)
     -- instead, we use a package mamager
     -- use 'wbthomason/packer.nvim'
 
@@ -98,3 +86,17 @@ return require("packer").startup(function(use)
 
     use("cappyzawa/trim.nvim")
 end)
+
+-- order matters
+require("plugins.config.onedark")
+require("plugins.config.nvim-cmp")
+require("plugins.config.nvim-treesitter")
+require("plugins.config.null-ls")
+require("plugins.config.lspsaga")
+require("plugins.config.telescope")
+require("plugins.config.lualine")
+require("plugins.config.nvim-tree")
+require("plugins.config.barbar")
+-- require("plugins.config.lsp-inlayhints")
+require("plugins.config.symbols-outline")
+require("plugins.config.gitsigns")

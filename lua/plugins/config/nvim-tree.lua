@@ -10,12 +10,7 @@ vim.opt.termguicolors = true
 -- empty setup using defaults
 -- require("nvim-tree").setup()
 
-local map = vim.api.nvim_set_keymap
-
-map("n", "<C-b>", ":NvimTreeToggle<CR>", { silent = true })
-
--- OR setup with some options
-require("nvim-tree").setup({
+local config = {
 	sort_by = "case_sensitive",
 	view = {
 		adaptive_size = true,
@@ -31,4 +26,7 @@ require("nvim-tree").setup({
 	filters = {
 		dotfiles = false, -- should hidden files
 	},
-})
+}
+
+-- OR setup with some options
+require("nvim-tree").setup(config)

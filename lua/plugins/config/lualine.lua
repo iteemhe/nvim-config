@@ -5,7 +5,7 @@ local lualine = require("lualine")
 
 -- Color table for highlights
 -- stylua: ignore
-local colors = {
+--[[ local colors = {
     bg       = '#202328',
     fg       = '#bbc2cf',
     yellow   = '#ECBE7B',
@@ -17,6 +17,19 @@ local colors = {
     magenta  = '#c678dd',
     blue     = '#51afef',
     red      = '#ec5f67',
+}]]
+
+local c = require('onedark.colors')
+local colors = {
+	bg = c.bg0,
+	fg = c.fg,
+	red = c.red,
+	green = c.green,
+	yellow = c.yellow,
+	blue = c.blue,
+	purple = c.purple,
+	cyan = c.cyan,
+	gray = c.grey,
 }
 
 local conditions = {

@@ -30,7 +30,7 @@ vim.diagnostic.config({
 
 local format_on_save = vim.api.nvim_create_augroup("LspFormatting", {})
 
-require("null-ls").setup({
+null_ls.setup({
 	temp_dir = "/tmp",
 	update_in_insert = false,
 	sources = sources,
