@@ -24,6 +24,72 @@ local plugins = {
 		end,
 	},
 
+	-- lualine
+	{
+		"nvim-lualine/lualine.nvim",
+		lazy = false,
+		config = function()
+			require("plugins.config.lualine")
+		end,
+		-- dependencies = { "kyazdani42/nvim-web-devicons", opt = true },
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+
+	-- bufferline
+	{
+		"romgrk/barbar.nvim",
+		-- event = "VeryLazy",
+		lazy = false,
+		config = function()
+			require("plugins.config.barbar")
+		end,
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+
+	-- nvim-cmp
+	{
+		"hrsh7th/nvim-cmp",
+		event = "VeryLazy",
+		config = function()
+			require("plugins.config.nvim-cmp")
+		end,
+
+		dependencies = {
+			-- as required by spec
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+
+			-- known will be loaded
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+
+			-- custom dependencies
+			"neovim/nvim-lspconfig",
+			"nvim-treesitter/nvim-treesitter",
+			"jose-elias-alvarez/null-ls.nvim",
+			"nvim-telescope/telescope.nvim",
+			-- for icons
+			"nvim-tree/nvim-web-devicons", -- optional, for file icons
+			-- for icon in nvim-cmp
+			"onsails/lspkind.nvim",
+		},
+	},
+
+	-- nvim-tree, file exploer
+	{
+		"nvim-tree/nvim-tree.lua",
+		-- event = "VeryLazy",
+		lazy = false, -- must be on the first screen
+		config = function()
+			require("plugins.config.nvim-tree")
+		end,
+		dependencies = {
+			"nvim-tree/nvim-web-devicons", -- optional, for file icons
+		},
+	},
+
 	-- nvim-treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -36,44 +102,45 @@ local plugins = {
 		end,
 	},
 
-	-- nvim-lspconfig
-	{ "neovim/nvim-lspconfig" },
-
-	-- nvim-cmp
+	-- neodev
 	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
+		"folke/neodev.nvim",
 		config = function()
-			require("plugins.config.nvim-cmp")
+			require("plugins.config.neodev")
+		end,
+	},
+
+	-- lsp_signature
+	{
+		"ray-x/lsp_signature.nvim",
+		config = function()
+			require("plugins.config.lsp_signature")
 		end,
 		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
+			"folke/noice.nvim",
+		},
+	},
 
-			-- treesitter for highlight
-			"nvim-treesitter/nvim-treesitter",
-			-- LuaSnipt for snippets
-			"L3MON4D3/LuaSnip",
-			-- null-ls for completion
-			"jose-elias-alvarez/null-ls.nvim",
-			-- lsp config
-			"neovim/nvim-lspconfig",
-			-- find definition
-			"nvim-telescope/telescope.nvim",
+	-- lsp -> clangd
+	"p00f/clangd_extensions.nvim",
+
+	-- nvim-lspconfig
+	{
+		"neovim/nvim-lspconfig",
+		lazy = false,
+		config = function()
+			require("plugins.config.lspconfig")
+		end,
+
+		dependencies = {
+			"folke/neodev.nvim",
+			"ray-x/lsp_signature.nvim",
 		},
 	},
 
 	-- luasnip
-	{ "L3MON4D3/LuaSnip", dependencies = {
-		"saadparwaiz1/cmp_luasnip",
-	} },
-
-	-- neodev
-	"folke/neodev.nvim",
-
-	"ray-x/lsp_signature.nvim",
+	"L3MON4D3/LuaSnip",
+	"saadparwaiz1/cmp_luasnip",
 
 	-- null-ls
 	{
@@ -94,70 +161,47 @@ local plugins = {
 	},
 
 	-- use("lvimuser/lsp-inlayhints.nvim")
-	--
+
+	-- Packer
+	{
+		"folke/noice.nvim",
+		lazy = false,
+		config = function()
+			require("plugins.config.noice")
+		end,
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		},
+	},
+
 	-- symbols
 	{
 		"simrat39/symbols-outline.nvim",
+		event = "VeryLazy",
 		config = function()
 			require("plugins.config.symbols-outline")
 		end,
 	},
 
-	-- bufferline
-	{
-		"romgrk/barbar.nvim",
-		lazy = false,
-		config = function()
-			require("plugins.config.barbar")
-		end,
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
-
-	-- nvim-tree, file exploer
-	{
-		"nvim-tree/nvim-tree.lua",
-		lazy = false,
-		config = function()
-			require("plugins.config.nvim-tree")
-		end,
-		dependencies = {
-			"nvim-tree/nvim-web-devicons", -- optional, for file icons
-		},
-	},
-
-	-- lspsaga
-	{
-		"glepnir/lspsaga.nvim",
-		lazy = false,
-		config = function()
-			require("plugins.config.lspsaga")
-		end,
-		branch = "main",
-	},
-
 	-- gitsigns
 	{
 		"lewis6991/gitsigns.nvim",
+		event = "VeryLazy",
 		config = function()
 			require("plugins.config.gitsigns")
 		end,
 	},
 
-	-- lualine
-	{
-		"nvim-lualine/lualine.nvim",
-		-- dependencies = { "kyazdani42/nvim-web-devicons", opt = true },
-		lazy = false,
-		config = function()
-			require("plugins.config.lualine")
-		end,
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
-
 	-- better-escape
 	{
 		"max397574/better-escape.nvim",
-		event = "InsertEnter",
+		event = "VeryLazy",
+		-- event = "InsertEnter",
 		-- lazy = false, -- always load
 		config = function()
 			require("plugins.config.better-escape")
@@ -167,18 +211,18 @@ local plugins = {
 	-- autopairs
 	{
 		"windwp/nvim-autopairs",
-		event = "InsertEnter",
+		event = "VeryLazy",
+		-- event = "InsertEnter",
 		config = function()
 			require("nvim-autopairs").setup()
 		end,
 	},
 
-	"p00f/clangd_extensions.nvim",
-
 	-- trim
 	{
 		"cappyzawa/trim.nvim",
-		event = "BufWritePre",
+		event = "VeryLazy",
+		-- event = "BufWritePre",
 		config = function()
 			require("plugins.config.trim")
 		end,

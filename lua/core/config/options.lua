@@ -21,3 +21,12 @@ vim.opt.scrolloff = 5
 vim.opt.sidescrolloff = 5
 
 vim.opt.signcolumn = "yes"
+
+--NOTE: nvim-tree
+
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true

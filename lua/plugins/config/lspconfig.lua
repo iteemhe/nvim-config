@@ -1,7 +1,9 @@
 -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+--[[
 require("neodev").setup({
 	-- add any options here, or leave empty to use the default settings
 })
+]]
 
 -- Set up lspconfig.
 local lspconfig = require("lspconfig")
@@ -11,13 +13,15 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 	properties = { "documentation", "detail", "additionalTextEdits" },
 }
 
+--[[
 require("lsp_signature").setup({
-	-- log_path = vim.fn.expand("$HOME") .. "/tmp/sig.log",
-	debug = true,
-	hint_enable = true,
-	handler_opts = { border = "single" },
-	max_width = 80,
-})
+    -- log_path = vim.fn.expand("$HOME") .. "/tmp/sig.log",
+    debug = true,
+    hint_enable = true,
+    handler_opts = { border = "single" },
+    max_width = 80,
+});
+]]
 
 -- then setup your lsp server as usual
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
@@ -82,6 +86,8 @@ require("clangd_extensions").setup({
 			"--limit-results=0",
 			"--pretty",
 			"-j=4",
+			-- turn off placeholders for lsp_signature
+			"--function-arg-placeholders=0",
 		},
 	},
 	extensions = {

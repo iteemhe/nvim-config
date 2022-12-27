@@ -1,9 +1,32 @@
 -- Set up nvim-cmp.
 local cmp = require("cmp")
+local lspkind = require("lspkind")
 
-cmp.setup({
+local formatting = {
+	fields = { "kind", "abbr", "menu" },
+	format = function(entry, vim_item)
+		local kind = lspkind.cmp_format({
+			mode = "symbol_text",
+			maxwidth = 30,
+			ellipsis_char = "...",
+			-- preset = "default",
+			preset = "codicons",
+		})(entry, vim_item)
+
+		local strings = vim.split(kind.kind, "%s", { trimempty = true })
+		kind.kind = " " .. strings[1] .. " "
+		kind.menu = "    (" .. strings[2] .. ")"
+		return kind
+	end,
+}
+
+local config = {
 	completion = { completeopt = "menu,menuone,noinsert" },
+	formatting = formatting,
 	experimental = { ghost_text = true },
+	view = {
+		entries = { name = "custom", selection_order = "near_cursor" },
+	},
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
@@ -14,9 +37,15 @@ cmp.setup({
 		end,
 	},
 	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
+		completion = {
+			-- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+			col_offset = -3,
+			side_padding = 0,
+		},
+		-- completion = cmp.config.window.bordered(),
+		-- documentation = cmp.config.window.bordered(),
 	},
+
 	mapping = cmp.mapping.preset.insert({
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -50,8 +79,12 @@ cmp.setup({
 		-- { name = 'snippy' }, -- For snippy users.
 	}, {
 		{ name = "buffer" },
+		-- hope we have path completion
+		{ name = "path" },
 	}),
-})
+}
+
+cmp.setup(config)
 
 -- Set configuration for specific filetype.
 cmp.setup.filetype("gitcommit", {
@@ -64,6 +97,8 @@ cmp.setup.filetype("gitcommit", {
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ "/", "?" }, {
+	-- do not select the first one
+	completion = { completeopt = "menu,menuone,noselect,noinsert" },
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
 		{ name = "buffer" },
@@ -72,6 +107,8 @@ cmp.setup.cmdline({ "/", "?" }, {
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(":", {
+	-- do not select the first one
+	completion = { completeopt = "menu,menuone,noselect,noinsert" },
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
 		{ name = "path" },
@@ -83,10 +120,9 @@ cmp.setup.cmdline(":", {
 require("luasnip").config.set_config({ history = true, updateevents = "TextChanged,TextChangedI" })
 require("luasnip.loaders.from_vscode").load()
 
-require("nvim-autopairs").setup()
+-- If you want insert `(` after select function or method item
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 -- -- Set up lspconfig.
 -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
