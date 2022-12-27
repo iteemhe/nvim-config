@@ -95,6 +95,7 @@ local config = {
 -- Set barbar's options
 require("bufferline").setup(config)
 
+--[[
 local nvim_tree_events = require("nvim-tree.events")
 local bufferline_api = require("bufferline.api")
 
@@ -113,3 +114,4 @@ end)
 nvim_tree_events.subscribe("TreeClose", function()
     bufferline_api.set_offset(0)
 end)
+]]

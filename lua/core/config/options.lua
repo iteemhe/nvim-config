@@ -1,3 +1,4 @@
+local api = vim.api
 -- vim.opt.compatible = false
 -- vim.opt.encoding = "utf-8"
 
@@ -32,3 +33,7 @@ vim.g.loaded_netrwPlugin = 1
 
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
+
+--NOTE: barbar
+-- reset highlight
+api.nvim_set_hl(0, "BarbecueSeparator", {})
