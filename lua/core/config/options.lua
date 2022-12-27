@@ -1,5 +1,5 @@
-vim.opt.compatible = false
-vim.opt.encoding = "utf-8"
+-- vim.opt.compatible = false
+-- vim.opt.encoding = "utf-8"
 
 -- vim.opt.indentkeys
 
@@ -22,6 +22,7 @@ vim.opt.sidescrolloff = 5
 
 vim.opt.signcolumn = "yes"
 vim.opt.cmdheight = 0
+-- vim.cmd.colorscheme("onedark")
 
 --NOTE: nvim-tree
 

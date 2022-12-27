@@ -1,0 +1,35 @@
+local config = {
+    icons = {
+        Text = " ",
+        Method = " ",
+        Function = " ",
+        Constructor = " ",
+        Field = " ",
+        Variable = " ",
+        Class = " ",
+        Interface = " ",
+        Module = " ",
+        Property = " ",
+        Unit = " ",
+        Value = " ",
+        Enum = " ",
+        Keyword = " ",
+        Snippet = " ",
+        Color = " ",
+        File = " ",
+        Reference = " ",
+        Folder = " ",
+        EnumMember = " ",
+        Constant = " ",
+        Struct = " ",
+        Event = " ",
+        Operator = " ",
+        TypeParameter = " ",
+        -- Not originally set in vim.lsp.protocol.CompletionItemKind
+        CustomColor = " ",
+        User = " ",
+        Issue = " ",
+    },
+}
+
+require("nvim-navic").setup(config)
