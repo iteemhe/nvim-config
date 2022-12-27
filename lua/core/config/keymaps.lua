@@ -79,13 +79,3 @@ map("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 map("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 map("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 map("n", "gd", ":Telescope lsp_definitions<CR>", opts)
--- map("n", "gD", builtin.lsp_implementations, opts)
-
---NOTE: nvim-tree
-
--- disable netrw at the very start of your init.lua (strongly advised)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
--- set termguicolors to enable highlight groups
-vim.opt.termguicolors = true
