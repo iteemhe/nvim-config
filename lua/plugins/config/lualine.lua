@@ -66,6 +66,7 @@ local config = {
 		lualine_c = {},
 		lualine_x = {},
 	},
+	extensions = { "nvim-tree", "symbols-outline" },
 }
 
 -- Inserts a component in lualine_c at left section
@@ -89,7 +90,9 @@ ins_left({
 ins_left({
 	-- mode component
 	function()
-		return ""
+		-- return ""
+		-- return ""
+		return require("nvim-web-devicons").get_icon_by_filetype("haskell")
 	end,
 	color = function()
 		-- auto change color according to neovims mode
