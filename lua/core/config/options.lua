@@ -4,8 +4,8 @@ local api = vim.api
 
 -- vim.opt.indentkeys
 
-vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
+-- vim.opt.cursorline = true
+-- vim.opt.cursorcolumn = true
 vim.opt.wrap = false
 vim.opt.autoindent = true
 vim.opt.expandtab = true
@@ -37,3 +37,7 @@ vim.opt.termguicolors = true
 --NOTE: barbar
 -- reset highlight
 api.nvim_set_hl(0, "BarbecueSeparator", {})
+api.nvim_set_hl(0, "BarbecueEllipsis", {})
+
+-- treesitter-context
+-- api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true, sp = "yellow" })
