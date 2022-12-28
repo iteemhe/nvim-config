@@ -19,6 +19,7 @@ local plugins = {
     {
         "navarasu/onedark.nvim",
         lazy = false, -- always load theme
+        priority = 1000, -- load first before any plugins
         config = function()
             require("plugins.config.onedark")
         end,
@@ -76,7 +77,6 @@ local plugins = {
     -- nvim-tree, file exploer
     {
         "nvim-tree/nvim-tree.lua",
-        -- event = "VeryLazy",
         lazy = false, -- must be on the first screen
         config = function()
             require("plugins.config.nvim-tree")

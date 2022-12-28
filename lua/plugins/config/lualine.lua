@@ -39,6 +39,33 @@ local conditions = {
     end,
 }
 
+local color = function()
+    -- auto change color according to neovims mode
+    local mode_color = {
+        n = colors.red,
+        i = colors.green,
+        v = colors.blue,
+        [""] = colors.blue,
+        V = colors.blue,
+        c = colors.magenta,
+        no = colors.red,
+        s = colors.orange,
+        S = colors.orange,
+        [""] = colors.orange,
+        ic = colors.yellow,
+        R = colors.violet,
+        Rv = colors.violet,
+        cv = colors.red,
+        ce = colors.red,
+        r = colors.cyan,
+        rm = colors.cyan,
+        ["r?"] = colors.cyan,
+        ["!"] = colors.red,
+        t = colors.red,
+    }
+    return { fg = mode_color[vim.fn.mode()] }
+end
+
 -- Config
 local config = {
     options = {
@@ -89,7 +116,8 @@ ins_left({
     function()
         return "▊"
     end,
-    color = { fg = colors.blue }, -- Sets highlighting of component
+    -- color = { fg = colors.blue }, -- Sets highlighting of component
+    color = color,
     padding = { left = 0, right = 1 }, -- We don't need space before this
 })
 
@@ -100,32 +128,7 @@ ins_left({
         -- return ""
         return require("nvim-web-devicons").get_icon_by_filetype("haskell")
     end,
-    color = function()
-        -- auto change color according to neovims mode
-        local mode_color = {
-            n = colors.red,
-            i = colors.green,
-            v = colors.blue,
-            [""] = colors.blue,
-            V = colors.blue,
-            c = colors.magenta,
-            no = colors.red,
-            s = colors.orange,
-            S = colors.orange,
-            [""] = colors.orange,
-            ic = colors.yellow,
-            R = colors.violet,
-            Rv = colors.violet,
-            cv = colors.red,
-            ce = colors.red,
-            r = colors.cyan,
-            rm = colors.cyan,
-            ["r?"] = colors.cyan,
-            ["!"] = colors.red,
-            t = colors.red,
-        }
-        return { fg = mode_color[vim.fn.mode()] }
-    end,
+    color = color,
     padding = { right = 1 },
 })
 
@@ -224,7 +227,8 @@ ins_right({
     function()
         return "▊"
     end,
-    color = { fg = colors.blue },
+    color = color,
+    -- color = { fg = colors.blue },
     padding = { left = 1 },
 })
 
