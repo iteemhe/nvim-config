@@ -50,7 +50,7 @@ local config = {
     highlight_alternate = false,
 
     -- Enable highlighting visible buffers
-    highlight_visible = true,
+    highlight_visible = false, -- NOTE: enable will cause unexpected behavior
 
     -- Enable/disable icons
     -- if set to 'numbers', will show buffer index in the tabline
