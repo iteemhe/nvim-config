@@ -8,7 +8,18 @@ local sources = {
 
     null_ls.builtins.diagnostics.todo_comments,
     null_ls.builtins.diagnostics.trail_space,
-    null_ls.builtins.diagnostics.cppcheck,
+
+    null_ls.builtins.diagnostics.cppcheck.with({
+        args = {
+            "--enable=all",
+            "-j=4",
+            "-l=4",
+            "--platform=unix64",
+            -- "--report-progress",
+            "--std=c++20", -- wil be ignored
+            "--template=gcc",
+        },
+    }),
 
     -- null_ls.builtins.diagnostics.eslint,
     -- null_ls.builtins.diagnostics.tsc,

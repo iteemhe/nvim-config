@@ -82,12 +82,13 @@ require("clangd_extensions").setup({
             "--header-insertion=never",
             "--pch-storage=memory",
             "--ranking-model=decision_forest",
-            "--limit-references=0",
-            "--limit-results=0",
-            "--pretty",
+            -- "--limit-references=0",
+            -- "--limit-results=0",
+            -- "--pretty",
             "-j=4",
             -- turn off placeholders for lsp_signature
             "--function-arg-placeholders=0",
+            "--sync",
         },
     },
     extensions = {
