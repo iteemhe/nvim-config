@@ -5,19 +5,22 @@ local sources = {
     null_ls.builtins.formatting.stylua, -- Lua format
     null_ls.builtins.formatting.black, -- Python formatter
     null_ls.builtins.formatting.prettier,
-    --	null_ls.builtins.formatting.codespell,
-    -- null_ls.builtins.formatting.beautysh,
 
     null_ls.builtins.diagnostics.todo_comments,
     null_ls.builtins.diagnostics.trail_space,
-    -- null_ls.builtins.diagnostics.codespell,
-
     null_ls.builtins.diagnostics.cppcheck,
-    null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.diagnostics.zsh,
-    null_ls.builtins.diagnostics.tsc,
 
-    -- null_ls.builtins.completion.spell,
+    -- null_ls.builtins.diagnostics.eslint,
+    -- null_ls.builtins.diagnostics.tsc,
+
+    -- gitsigns
+    null_ls.builtins.code_actions.gitsigns,
+
+    -- cspell
+    -- null_ls.builtins.diagnostics.cspell,
+    -- null_ls.builtins.code_actions.cspell,
+
+    -- luasnip
     null_ls.builtins.completion.luasnip,
 }
 

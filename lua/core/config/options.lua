@@ -41,3 +41,15 @@ api.nvim_set_hl(0, "BarbecueEllipsis", {})
 
 -- treesitter-context
 api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true, sp = "Gray" })
+
+-- diagnostic signs
+local signs = {
+    { name = "DiagnosticSignError", text = " " },
+    { name = "DiagnosticSignWarn", text = " " },
+    { name = "DiagnosticSignHint", text = "\u{fbe6} " },
+    { name = "DiagnosticSignInfo", text = " " },
+}
+
+for _, sign in ipairs(signs) do
+    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+end

@@ -155,6 +155,16 @@ local plugins = {
         },
     },
 
+    -- better comments
+    {
+        "folke/todo-comments.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("plugins.config.todo_comments")
+        end,
+        dependency = { "nvim-lua/plenary.nvim" },
+    },
+
     -- neodev
     {
         "folke/neodev.nvim",

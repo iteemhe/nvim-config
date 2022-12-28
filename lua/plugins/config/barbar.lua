@@ -18,16 +18,18 @@ local config = {
 
     -- Enables / disables diagnostic symbols
     diagnostics = {
-        --[[ you can use a list
-        { enabled = true, icon = "ﬀ" }, -- ERROR
-        { enabled = false }, -- WARN
-        { enabled = false }, -- INFO
-        { enabled = true }, -- HINT
-        ]]
+        -- you can use a list
+        { enabled = true, icon = " " }, -- ERROR
+        { enabled = true, icon = " " }, -- WARN
+        { enabled = true, icon = " " }, -- INFO
+        { enabled = true, icon = "\u{fbe6} " }, -- HINT
+
+        --[[
         { enabled = false }, -- ERROR
         { enabled = false }, -- WARN
         { enabled = false }, -- INFO
         { enabled = false }, -- HINT
+        ]]
 
         --[[ OR `vim.diagnostic.severity`
         [vim.diagnostic.severity.ERROR] = { enabled = true, icon = "ﬀ" },
