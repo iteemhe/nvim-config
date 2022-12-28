@@ -19,7 +19,8 @@ local lualine = require("lualine")
     red      = '#ec5f67',
 }]]
 
-local colors = require('onedark.palette').darker
+-- local colors = require('onedark.palette').darker
+local colors = require("onedarkpro.themes.onedark_vivid").palette
 
 colors.magenta = colors.purple
 -- colors.darkblue = colors.dark_purple

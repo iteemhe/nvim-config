@@ -17,11 +17,13 @@ local plugins = {
 
     -- onedark
     {
-        "navarasu/onedark.nvim",
+        -- "navarasu/onedark.nvim",
+        "olimorris/onedarkpro.nvim",
         lazy = false, -- always load theme
         priority = 1000, -- load first before any plugins
         config = function()
-            require("plugins.config.onedark")
+            -- require("plugins.config.onedark")
+            require("plugins.config.onedarkpro")
         end,
     },
 
@@ -295,7 +297,7 @@ local opts = {
         lazy = true,
     },
     install = {
-        colorscheme = { "onedark" },
+        colorscheme = { "onedark_vivid" },
     },
 }
 
