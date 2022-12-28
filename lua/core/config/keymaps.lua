@@ -19,6 +19,9 @@ map("n", "<Leader>ya", ":%y+<CR>", opts)
 map("n", "<Leader>yy", '"+yy', opts)
 map("n", "<Leader>p", '"+p', opts)
 
+-- code actions
+map("n", "<Leader>a", vim.lsp.buf.code_action, opts)
+
 --NOTE: nvim-tree
 map("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
 map("n", "<C-n>", ":NvimTreeFocus<CR>", opts)

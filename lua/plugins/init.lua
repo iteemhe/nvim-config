@@ -143,6 +143,18 @@ local plugins = {
         end,
     },
 
+    -- treesitter-context
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        event = "VeryLazy",
+        config = function()
+            require("plugins.config.context")
+        end,
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+    },
+
     -- neodev
     {
         "folke/neodev.nvim",
@@ -190,6 +202,14 @@ local plugins = {
             require("plugins.config.telescope")
         end,
         dependencies = { "nvim-lua/plenary.nvim" },
+    },
+
+    -- telescope/ui-select
+    {
+        "nvim-telescope/telescope-ui-select.nvim",
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+        },
     },
 
     -- use("lvimuser/lsp-inlayhints.nvim")

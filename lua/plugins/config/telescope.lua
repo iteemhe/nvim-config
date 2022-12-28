@@ -1,5 +1,7 @@
-local config = {
+local telescope = require("telescope")
+local actions = require("telescope.actions")
 
+local config = {
     defaults = {
         -- Default configuration for telescope goes here:
         -- config_key = value,
@@ -8,7 +10,12 @@ local config = {
                 -- map actions.which_key to <C-h> (default: <C-/>)
                 -- actions.which_key shows the mappings for your picker,
                 -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+                ["<C-d>"] = actions.close,
                 ["<C-h>"] = "which_key",
+                ["<ESC>"] = actions.close,
+            },
+            n = {
+                ["<C-d>"] = actions.close,
             },
         },
     },
@@ -25,7 +32,11 @@ local config = {
         },
     },
     extensions = {
-        "noice",
+        ["ui-select"] = {
+            require("telescope.themes").get_cursor({}),
+        },
+
+        -- "noice",
         -- Your extension configuration goes here:
         -- extension_name = {
         --   extension_config_key = value,
@@ -34,4 +45,7 @@ local config = {
     },
 }
 
-require("telescope").setup(config)
+telescope.setup(config)
+
+telescope.load_extension("ui-select")
+-- telescope.load_extension("noice")
