@@ -1,5 +1,7 @@
 -- Set up nvim-cmp.
 local cmp = require("cmp")
+local compare = require("cmp.config.compare")
+
 local lspkind = require("lspkind")
 
 local formatting = {
@@ -15,15 +17,35 @@ local formatting = {
 
         local strings = vim.split(kind.kind, "%s", { trimempty = true })
         kind.kind = " " .. strings[1] .. " "
-        kind.menu = "    (" .. strings[2] .. ")"
+        -- kind.menu = "    (" .. strings[2] .. ")"
+        kind.menu = "    [" .. strings[2] .. "]"
         return kind
     end,
 }
 
+local sorting = {
+    -- priority_weight = 2,
+    comparators = {
+        compare.offset,
+        compare.exact,
+        -- compare.scopes,
+        compare.score,
+        compare.recently_used,
+        -- for clangd_extensions
+        require("clangd_extensions.cmp_scores"),
+        compare.locality,
+        compare.kind,
+        compare.sort_text,
+        compare.length,
+        compare.order,
+    },
+}
+
 local config = {
-    completion = { completeopt = "menu,menuone,noinsert" },
+    -- completion = { completeopt = "menu,menuone,noinsert" },
     formatting = formatting,
-    experimental = { ghost_text = true },
+    sorting = sorting,
+    -- experimental = { ghost_text = true },
     view = {
         entries = { name = "custom", selection_order = "near_cursor" },
     },
@@ -41,6 +63,7 @@ local config = {
             -- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
             col_offset = -3,
             side_padding = 0,
+            scrollbar = false,
         },
         -- completion = cmp.config.window.bordered(),
         -- documentation = cmp.config.window.bordered(),
