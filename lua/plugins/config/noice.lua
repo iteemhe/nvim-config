@@ -5,10 +5,6 @@ local routes = {
         },
         opts = { skip = true },
     },
-    {
-        filter = { find = "written" },
-        opts = { skip = true },
-    },
 }
 
 local config = {
