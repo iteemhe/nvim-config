@@ -40,4 +40,4 @@ api.nvim_set_hl(0, "BarbecueSeparator", {})
 api.nvim_set_hl(0, "BarbecueEllipsis", {})
 
 -- treesitter-context
--- api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true, sp = "yellow" })
+api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true, sp = "Gray" })
