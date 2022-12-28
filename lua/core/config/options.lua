@@ -24,7 +24,7 @@ vim.opt.sidescrolloff = 5
 vim.opt.signcolumn = "yes"
 vim.opt.cmdheight = 0
 
-vim.opt.shortmess = "I" -- check :h shortmess
+vim.opt.shortmess:append("IW") -- check :h shortmess
 -- vim.cmd.colorscheme("onedark")
 
 --NOTE: nvim-tree
