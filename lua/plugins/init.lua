@@ -164,7 +164,7 @@ local plugins = {
         config = function()
             require("plugins.config.todo_comments")
         end,
-        dependency = { "nvim-lua/plenary.nvim" },
+        dependencies = { "nvim-lua/plenary.nvim" },
     },
 
     -- neodev
