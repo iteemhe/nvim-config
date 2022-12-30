@@ -9,6 +9,8 @@ map("!", "<C-l>", "<Right>", opts)
 
 map("n", "<Leader>s", ":silent w<CR>", opts)
 map("n", "<Leader>w", ":silent w<CR>", opts)
+map("n", "<Leader>sw", ":silent w !pkexec tee %<CR>", opts)
+
 map("n", "<Leader>x", ":x<CR>", opts)
 map("n", "<Leader>e", ":q!<CR>", opts)
 map("n", "<Leader>b", ":bd<CR>", opts)
