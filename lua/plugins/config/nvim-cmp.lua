@@ -42,7 +42,7 @@ local sorting = {
 }
 
 local config = {
-    -- completion = { completeopt = "menu,menuone,noinsert" },
+    completion = { completeopt = "menu,menuone,noinsert" },
     formatting = formatting,
     sorting = sorting,
     -- experimental = { ghost_text = true },

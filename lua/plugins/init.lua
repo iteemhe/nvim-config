@@ -38,18 +38,6 @@ local plugins = {
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
-    --[[ bufferline
-    {
-        "akinsho/bufferline.nvim",
-        lazy = false,
-        dev = true,
-        config = function()
-            require("plugins.config.bufferline")
-        end,
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-    },
-    ]]
-
     {
         "romgrk/barbar.nvim",
         -- event = "VeryLazy",
@@ -62,6 +50,7 @@ local plugins = {
 
     {
         "utilyre/barbecue.nvim",
+        commit = "0a3e2d88167dd983fcdf9911801d1b809295e865",
         lazy = false,
         -- event = "VeryLazy",
         -- branch = "dev", -- omit this if you only want stable updates
@@ -131,6 +120,37 @@ local plugins = {
             -- for icon in nvim-cmp
             "onsails/lspkind.nvim",
         },
+    },
+
+    -- debugger
+    {
+        "mfussenegger/nvim-dap",
+        -- load manully
+        -- event = "VeryLazy",
+        config = function()
+            require("plugins.config.debugger")
+        end,
+        dependencies = {
+            "theHamsta/nvim-dap-virtual-text",
+            "rcarriga/nvim-dap-ui",
+        },
+    },
+
+    {
+        "theHamsta/nvim-dap-virtual-text",
+        config = function()
+            require("plugins.config.virtual-text")
+        end,
+    },
+
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+        },
+        config = function()
+            require("dapui").setup({})
+        end,
     },
 
     -- nvim-treesitter

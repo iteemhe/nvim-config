@@ -22,4 +22,11 @@ local config = {
 }
 
 -- OR setup with some options
-require("nvim-tree").setup(config)
+local nvim_tree = require("nvim-tree")
+local map = vim.keymap.set
+nvim_tree.setup(config)
+local opts = { noremap = true, silent = true }
+
+--NOTE: nvim-tree
+map("n", "<C-b>", nvim_tree.toggle, opts)
+map("n", "<C-n>", nvim_tree.focus, opts)
