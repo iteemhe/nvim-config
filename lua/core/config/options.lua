@@ -42,7 +42,7 @@ api.nvim_set_hl(0, "BarbecueSeparator", {})
 api.nvim_set_hl(0, "BarbecueEllipsis", {})
 
 -- treesitter-context
-api.nvim_set_hl(0, "TreesitterContextBottom", { underdouble = true, sp = "blue" })
+api.nvim_set_hl(0, "TreesitterContextBottom", { underdouble = true, sp = "purple" })
 
 -- diagnostic signs
 local signs = {
