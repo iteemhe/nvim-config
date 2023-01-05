@@ -28,7 +28,6 @@ vim.opt.shortmess:append("I") -- check :h shortmess
 -- vim.cmd.colorscheme("onedark")
 
 --NOTE: nvim-tree
-
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -38,8 +37,8 @@ vim.opt.termguicolors = true
 
 --NOTE: barbar
 -- reset highlight
-api.nvim_set_hl(0, "BarbecueSeparator", {})
-api.nvim_set_hl(0, "BarbecueEllipsis", {})
+-- api.nvim_set_hl(0, "BarbecueSeparator", {})
+--api.nvim_set_hl(0, "BarbecueEllipsis", {})
 
 -- treesitter-context
 api.nvim_set_hl(0, "TreesitterContextBottom", { underdouble = true, sp = "purple" })

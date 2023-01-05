@@ -50,9 +50,8 @@ local plugins = {
 
     {
         "utilyre/barbecue.nvim",
-        -- commit = "0a3e2d88167dd983fcdf9911801d1b809295e865",
-        lazy = false,
-        -- event = "VeryLazy",
+        event = "VeryLazy",
+        -- lazy = false,
         -- branch = "dev", -- omit this if you only want stable updates
         config = function()
             require("plugins.config.barbecue")
@@ -107,6 +106,7 @@ local plugins = {
     -- nvim-lspconfig
     {
         "neovim/nvim-lspconfig",
+        -- event = "VeryLazy",
         lazy = false,
         config = function()
             require("plugins.config.lspconfig")
@@ -117,6 +117,7 @@ local plugins = {
             "williamboman/mason-lspconfig.nvim",
             "folke/neodev.nvim",
             "ray-x/lsp_signature.nvim",
+            "nvim-treesitter/nvim-treesitter",
             -- ! order matters
             "lvimuser/lsp-inlayhints.nvim",
         },

@@ -11,8 +11,8 @@ local sources = {
     -- null_ls.builtins.formatting.autopep8,
     null_ls.builtins.formatting.prettier,
 
-    null_ls.builtins.diagnostics.todo_comments,
-    null_ls.builtins.diagnostics.trail_space,
+    -- null_ls.builtins.diagnostics.todo_comments,
+    -- null_ls.builtins.diagnostics.trail_space,
 
     null_ls.builtins.diagnostics.cppcheck.with({
         args = {
@@ -36,14 +36,14 @@ local sources = {
     -- null_ls.builtins.diagnostics.tsc,
 
     -- gitsigns
-    null_ls.builtins.code_actions.gitsigns,
+    -- null_ls.builtins.code_actions.gitsigns,
 
     -- cspell
     -- null_ls.builtins.diagnostics.cspell,
     -- null_ls.builtins.code_actions.cspell,
 
     -- luasnip
-    null_ls.builtins.completion.luasnip,
+    -- null_ls.builtins.completion.luasnip,
 }
 
 -- signla nvim to update in insert mode

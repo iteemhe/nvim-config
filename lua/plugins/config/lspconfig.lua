@@ -13,24 +13,11 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     properties = { "documentation", "detail", "additionalTextEdits" },
 }
 
---[[
-require("lsp_signature").setup({
-    -- log_path = vim.fn.expand("$HOME") .. "/tmp/sig.log",
-    debug = true,
-    hint_enable = true,
-    handler_opts = { border = "single" },
-    max_width = 80,
-});
-]]
-
--- then setup your lsp server as usual
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
--- require('lspconfig').sumneko_lua.setup {
---     capabilities = capabilities
--- }
+local on_attach = function(client, bufnr) end
 
 -- Lua
 lspconfig.sumneko_lua.setup({
+    on_attach = on_attach,
     capabilities = capabilities,
     settings = {
         Lua = {
@@ -58,6 +45,7 @@ lspconfig.sumneko_lua.setup({
 
 -- C/C++
 lspconfig.clangd.setup({
+    on_attach = on_attach,
     capabilities = capabilities,
     cmd = {
         "clangd",
@@ -74,16 +62,19 @@ lspconfig.clangd.setup({
 
 -- Rust
 lspconfig.rust_analyzer.setup({
+    on_attach = on_attach,
     capabilities = capabilities,
 })
 
 -- Haskell
 lspconfig.hls.setup({
+    on_attach = on_attach,
     capabilities = capabilities,
 })
 
 -- Python
 lspconfig.pyright.setup({
+    on_attach = on_attach,
     capabilities = capabilities,
     python = {
         analysis = {
@@ -98,5 +89,6 @@ lspconfig.pyright.setup({
 
 -- Markdown
 lspconfig.marksman.setup({
+    on_attach = on_attach,
     capabilities = capabilities,
 })
