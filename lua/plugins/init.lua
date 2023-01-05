@@ -96,6 +96,14 @@ local plugins = {
         },
     },
 
+    {
+        "lvimuser/lsp-inlayhints.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("plugins.config.lsp-inlayhints")
+        end,
+    },
+
     -- nvim-lspconfig
     {
         "neovim/nvim-lspconfig",
@@ -105,9 +113,12 @@ local plugins = {
         end,
 
         dependencies = {
+            -- optional
             "williamboman/mason-lspconfig.nvim",
             "folke/neodev.nvim",
             "ray-x/lsp_signature.nvim",
+            -- ! order matters
+            "lvimuser/lsp-inlayhints.nvim",
         },
     },
 
@@ -222,9 +233,6 @@ local plugins = {
             require("plugins.config.lsp_signature")
         end,
     },
-
-    -- lsp -> clangd
-    "p00f/clangd_extensions.nvim",
 
     {
         "smiteshp/nvim-navic",

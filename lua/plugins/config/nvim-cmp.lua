@@ -23,29 +23,10 @@ local formatting = {
     end,
 }
 
-local sorting = {
-    -- priority_weight = 2,
-    comparators = {
-        compare.offset,
-        compare.exact,
-        -- compare.scopes,
-        compare.score,
-        compare.recently_used,
-        -- for clangd_extensions
-        require("clangd_extensions.cmp_scores"),
-        compare.locality,
-        compare.kind,
-        compare.sort_text,
-        compare.length,
-        compare.order,
-    },
-}
-
 local config = {
     completion = { completeopt = "menu,menuone,noinsert" },
     formatting = formatting,
-    sorting = sorting,
-    -- experimental = { ghost_text = true },
+    experimental = { ghost_text = true },
     view = {
         entries = { name = "custom", selection_order = "near_cursor" },
     },
