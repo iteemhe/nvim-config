@@ -3,7 +3,12 @@ local null_ls = require("null-ls")
 local sources = {
     null_ls.builtins.formatting.clang_format, -- C/C++ formatter
     null_ls.builtins.formatting.stylua, -- Lua format
-    null_ls.builtins.formatting.black, -- Python formatter
+    null_ls.builtins.formatting.black.with({
+        extra_args = {
+            "-l 75",
+        },
+    }), -- Python formatter
+    -- null_ls.builtins.formatting.autopep8,
     null_ls.builtins.formatting.prettier,
 
     null_ls.builtins.diagnostics.todo_comments,
@@ -18,6 +23,12 @@ local sources = {
             -- "--report-progress",
             "--std=c++20", -- wil be ignored
             "--template=gcc",
+        },
+    }),
+    null_ls.builtins.diagnostics.pylint.with({
+        extra_args = {
+            "--jobs=4",
+            "--enable-all-extensions",
         },
     }),
 

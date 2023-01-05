@@ -5,12 +5,12 @@ if not vim.loop.fs_stat(lazypath) then
         "git",
         "clone",
         "--filter=blob:none",
-        "--single-branch",
         "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
         lazypath,
     })
 end
-vim.opt.runtimepath:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
 -- plugins
 local plugins = {
@@ -50,7 +50,7 @@ local plugins = {
 
     {
         "utilyre/barbecue.nvim",
-        commit = "0a3e2d88167dd983fcdf9911801d1b809295e865",
+        -- commit = "0a3e2d88167dd983fcdf9911801d1b809295e865",
         lazy = false,
         -- event = "VeryLazy",
         -- branch = "dev", -- omit this if you only want stable updates
@@ -77,6 +77,25 @@ local plugins = {
         },
     },
 
+    -- Mason
+
+    {
+        "williamboman/mason.nvim",
+        config = function()
+            require("plugins.config.mason")
+        end,
+    },
+
+    {
+        "williamboman/mason-lspconfig.nvim",
+        config = function()
+            require("plugins.config.mason-lspconfig")
+        end,
+        require = {
+            "williamboman/mason.nvim",
+        },
+    },
+
     -- nvim-lspconfig
     {
         "neovim/nvim-lspconfig",
@@ -86,6 +105,7 @@ local plugins = {
         end,
 
         dependencies = {
+            "williamboman/mason-lspconfig.nvim",
             "folke/neodev.nvim",
             "ray-x/lsp_signature.nvim",
         },

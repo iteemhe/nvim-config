@@ -88,7 +88,7 @@ require("clangd_extensions").setup({
             "-j=4",
             -- turn off placeholders for lsp_signature
             "--function-arg-placeholders=0",
-            "--sync",
+            --  "--sync",
         },
     },
     extensions = {
