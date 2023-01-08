@@ -123,6 +123,16 @@ local plugins = {
         },
     },
 
+    {
+        "lspcontainers/lspcontainers.nvim",
+        -- INFO:
+        enabled = false,
+        event = "VeryLazy",
+        dependencies = {
+            "neovim/nvim-lspconfig",
+        },
+    },
+
     -- nvim-cmp
     {
         "hrsh7th/nvim-cmp",
@@ -207,6 +217,17 @@ local plugins = {
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
         },
+    },
+
+    {
+        url = "https://codeberg.org/esensar/nvim-dev-container",
+        -- INFO:
+        enabled = false,
+        event = "VeryLazy",
+        config = function()
+            require("plugins.config.dev-container")
+        end,
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
     },
 
     -- better comments
