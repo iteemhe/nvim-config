@@ -92,3 +92,15 @@ lspconfig.marksman.setup({
     on_attach = on_attach,
     capabilities = capabilities,
 })
+
+-- Scheme
+lspconfig.racket_langserver.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
+
+-- LaTeX
+lspconfig.texlab.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})

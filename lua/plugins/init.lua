@@ -50,8 +50,8 @@ local plugins = {
 
     {
         "utilyre/barbecue.nvim",
-        event = "VeryLazy",
-        -- lazy = false,
+        -- event = "VeryLazy",
+        lazy = false,
         -- branch = "dev", -- omit this if you only want stable updates
         config = function()
             require("plugins.config.barbecue")

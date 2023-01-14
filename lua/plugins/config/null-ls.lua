@@ -10,11 +10,13 @@ local sources = {
     }), -- Python formatter
     -- null_ls.builtins.formatting.autopep8,
     null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.latexindent,
 
     -- null_ls.builtins.diagnostics.todo_comments,
     -- null_ls.builtins.diagnostics.trail_space,
 
     null_ls.builtins.diagnostics.cppcheck.with({
+        method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
         args = {
             "--enable=all",
             "-j=4",
@@ -26,6 +28,7 @@ local sources = {
         },
     }),
     null_ls.builtins.diagnostics.pylint.with({
+        method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
         extra_args = {
             "--jobs=4",
             "--enable-all-extensions",
