@@ -12,6 +12,9 @@ local sources = {
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.latexindent,
 
+    -- Lisp formatter
+    -- null_ls.builtins.formatting.raco_fmt,
+
     -- null_ls.builtins.diagnostics.todo_comments,
     -- null_ls.builtins.diagnostics.trail_space,
 

@@ -96,6 +96,16 @@ local plugins = {
     },
 
     {
+        "jay-babu/mason-null-ls.nvim",
+        config = function()
+            require("plugins.config.mason-null-ls")
+        end,
+        require = {
+            "williamboman/mason.nvim",
+        },
+    },
+
+    {
         "lvimuser/lsp-inlayhints.nvim",
         event = "VeryLazy",
         config = function()

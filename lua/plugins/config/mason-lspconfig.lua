@@ -1,5 +1,5 @@
 local config = {
-    automatic_installation = true,
+    automatic_installation = false,
 }
 
 require("mason-lspconfig").setup(config)
