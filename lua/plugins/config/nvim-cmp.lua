@@ -26,7 +26,7 @@ local formatting = {
 local config = {
     completion = { completeopt = "menu,menuone,noinsert" },
     formatting = formatting,
-    experimental = { ghost_text = true },
+    -- experimental = { ghost_text = true },
     view = {
         entries = { name = "custom", selection_order = "near_cursor" },
     },

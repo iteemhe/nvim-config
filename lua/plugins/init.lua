@@ -210,7 +210,7 @@ local plugins = {
         event = "VeryLazy",
         config = function()
             vim.g.copilot_no_tab_map = true
-            vim.keymap.set("i", "<C-L>", "copilot#Accept()", { noremap = true, silent = true, expr = true })
+            vim.keymap.set("i", "<C-G>", "copilot#Accept('')", { noremap = true, silent = true, expr = true })
         end,
         -- enabled = false,
     },
