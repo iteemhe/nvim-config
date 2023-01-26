@@ -205,6 +205,16 @@ local plugins = {
         end,
     },
 
+    {
+        "github/copilot.vim",
+        event = "VeryLazy",
+        config = function()
+            vim.g.copilot_no_tab_map = true
+            vim.keymap.set("i", "<C-L>", "copilot#Accept()", { noremap = true, silent = true, expr = true })
+        end,
+        -- enabled = false,
+    },
+
     -- nvim-treesitter
     {
         "nvim-treesitter/nvim-treesitter",
@@ -393,5 +403,3 @@ require("lazy").setup(plugins, opts)
 -- require("plugins.config.barbar")
 -- require("plugins.config.lualine")
 -- require("plugins.config.symbols-outline")
--- require("plugins.config.gitsigns")
--- require("plugins.config.lsp-inlayhints")
