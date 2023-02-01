@@ -76,6 +76,14 @@ local plugins = {
         },
     },
 
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        event = "BufRead",
+        config = function()
+            require("plugins.config.indent-blankline")
+        end,
+    },
+
     -- Mason
 
     {
