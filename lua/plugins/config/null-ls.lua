@@ -12,6 +12,7 @@ local sources = {
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.latexindent,
     -- null_ls.builtins.formatting.emacs_scheme_mode,
+    null_ls.builtins.formatting.rustfmt,
 
     -- Lisp formatter
     -- null_ls.builtins.formatting.raco_fmt,
