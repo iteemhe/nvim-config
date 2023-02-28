@@ -34,10 +34,7 @@ local sources = {
     }),
     null_ls.builtins.diagnostics.pylint.with({
         method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-        extra_args = {
-            "--jobs=4",
-            "--enable-all-extensions",
-        },
+        extra_args = { "--jobs=4", "--enable-all-extensions" },
     }),
 
     -- null_ls.builtins.diagnostics.eslint,
@@ -60,7 +57,6 @@ vim.diagnostic.config({
     update_in_insert = true,
 })
 ]]
-
 local format_on_save = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({

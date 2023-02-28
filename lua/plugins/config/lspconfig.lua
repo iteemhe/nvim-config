@@ -4,7 +4,6 @@ require("neodev").setup({
 	-- add any options here, or leave empty to use the default settings
 })
 ]]
-
 -- Set up lspconfig.
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -16,7 +15,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 local on_attach = function(client, bufnr) end
 
 -- Lua
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
@@ -102,6 +101,12 @@ lspconfig.racket_langserver.setup({
 
 -- LaTeX
 lspconfig.texlab.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
+
+-- Java
+lspconfig.jdtls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
 })
