@@ -134,7 +134,7 @@ local plugins = {
             -- optional
             "williamboman/mason-lspconfig.nvim",
             "folke/neodev.nvim",
-            "ray-x/lsp_signature.nvim",
+            -- "ray-x/lsp_signature.nvim",
             "nvim-treesitter/nvim-treesitter",
             -- ! order matters
             "lvimuser/lsp-inlayhints.nvim",
@@ -187,6 +187,7 @@ local plugins = {
         "mfussenegger/nvim-dap",
         -- load manully
         -- event = "VeryLazy",
+        enabled = false,
         config = function()
             require("plugins.config.debugger")
         end,
@@ -198,6 +199,7 @@ local plugins = {
 
     {
         "theHamsta/nvim-dap-virtual-text",
+        enabled = false,
         config = function()
             require("plugins.config.virtual-text")
         end,
@@ -205,6 +207,7 @@ local plugins = {
 
     {
         "rcarriga/nvim-dap-ui",
+        enabled = false,
         dependencies = {
             "mfussenegger/nvim-dap",
         },
@@ -253,8 +256,14 @@ local plugins = {
     },
 
     {
+        url = "https://gitlab.com/HiPhish/nvim-ts-rainbow2",
+        enabled = false,
+        event = "VeryLazy",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+    },
+
+    {
         url = "https://codeberg.org/esensar/nvim-dev-container",
-        -- INFO:
         enabled = false,
         event = "VeryLazy",
         config = function()
@@ -284,6 +293,7 @@ local plugins = {
     -- lsp_signature
     {
         "ray-x/lsp_signature.nvim",
+        enabled = false,
         config = function()
             require("plugins.config.lsp_signature")
         end,
@@ -405,14 +415,3 @@ local opts = {
 }
 
 require("lazy").setup(plugins, opts)
--- order matters
--- require("plugins.config.onedark")
--- require("plugins.config.nvim-cmp")
--- require("plugins.config.nvim-treesitter")
--- require("plugins.config.null-ls")
--- require("plugins.config.nvim-tree")
--- require("plugins.config.telescope")
--- require("plugins.config.lspsaga")
--- require("plugins.config.barbar")
--- require("plugins.config.lualine")
--- require("plugins.config.symbols-outline")
