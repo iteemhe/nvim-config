@@ -238,7 +238,8 @@ local plugins = {
             require("plugins.config.nvim-treesitter")
         end,
         build = function()
-            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+            local ts_update =
+                require("nvim-treesitter.install").update({ with_sync = true })
             ts_update()
         end,
     },

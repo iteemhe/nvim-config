@@ -110,3 +110,9 @@ lspconfig.jdtls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
 })
+
+-- Clojure
+lspconfig.clojure_lsp.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})

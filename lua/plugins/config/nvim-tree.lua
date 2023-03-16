@@ -7,11 +7,7 @@ local config = {
     sort_by = "case_sensitive",
     view = {
         adaptive_size = true,
-        mappings = {
-            list = {
-                { key = "u", action = "dir_up" },
-            },
-        },
+        -- mappings = { list = { { key = "u", action = "dir_up" }, }, },
     },
     renderer = {
         group_empty = true,
@@ -23,13 +19,14 @@ local config = {
 
 -- OR setup with some options
 local nvim_tree = require("nvim-tree")
+local api = require("nvim-tree.api")
 local map = vim.keymap.set
 nvim_tree.setup(config)
 local opts = { noremap = true, silent = true }
 
 --NOTE: nvim-tree
-map("n", "<C-b>", nvim_tree.toggle, opts)
-map("n", "<C-n>", nvim_tree.focus, opts)
+map("n", "<C-b>", api.tree.toggle, opts)
+map("n", "<C-n>", api.tree.focus, opts)
 
 local function open_nvim_tree(data)
     -- buffer is a directory
