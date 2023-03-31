@@ -221,12 +221,12 @@ local plugins = {
         event = "VeryLazy",
         config = function()
             vim.g.copilot_no_tab_map = true
-            vim.api.nvim_set_keymap(
-                "i",
-                "<C-G>",
-                "copilot#Accept('')",
-                { noremap = true, silent = true, expr = true, replace_keycodes = false }
-            )
+            vim.api.nvim_set_keymap("i", "<C-G>", "copilot#Accept('')", {
+                noremap = true,
+                silent = true,
+                expr = true,
+                replace_keycodes = false,
+            })
         end,
         -- enabled = false,
     },

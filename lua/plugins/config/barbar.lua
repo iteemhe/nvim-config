@@ -16,13 +16,14 @@ local config = {
     -- Valid options are 'left' (the default) and 'right'
     focus_on_close = "left",
     -- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.
-    hide = { extensions = true, inactive = true },
+    -- hide = { extensions = true, inactive = true },
+    hide = { extensions = true },
     -- Disable highlighting alternate buffers
     highlight_alternate = false,
     -- Disable highlighting file icons in inactive buffers
     highlight_inactive_file_icons = false,
     -- Enable highlighting visible buffers
-    highlight_visible = true,
+    highlight_visible = false, -- WARN: do not enable this option
     icons = {
         -- Configure the base icons on the bufferline.
         buffer_index = false,
@@ -120,31 +121,32 @@ map("n", "<Space>bd", "<Cmd>BufferOrderByDirectory<CR>", opts)
 map("n", "<Space>bl", "<Cmd>BufferOrderByLanguage<CR>", opts)
 map("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 
--- Other:
--- :BarbarEnable - enables barbar (enabled by default)
--- :BarbarDisable - very bad command, should never be used
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function(tbl)
+        local set_offset = require("barbar.api").set_offset
 
--- Other:
--- :BarbarEnable - enables barbar (enabled by default)
--- :BarbarDisable - very bad command, should never be used
+        local bufwinid
+        local last_width
+        local autocmd = vim.api.nvim_create_autocmd("WinScrolled", {
+            callback = function()
+                bufwinid = bufwinid or vim.fn.bufwinid(tbl.buf)
 
---[[
-local nvim_tree_events = require("nvim-tree.events")
-local bufferline_api = require("bufferline.api")
+                local width = vim.api.nvim_win_get_width(bufwinid)
+                if width ~= last_width then
+                    set_offset(width, "FileTree")
+                    last_width = width
+                end
+            end,
+        })
 
-local function get_tree_size()
-    return require("nvim-tree.view").View.width
-end
-
-nvim_tree_events.subscribe("TreeOpen", function()
-    bufferline_api.set_offset(get_tree_size())
-end)
-
-nvim_tree_events.subscribe("Resize", function()
-    bufferline_api.set_offset(get_tree_size())
-end)
-
-nvim_tree_events.subscribe("TreeClose", function()
-    bufferline_api.set_offset(0)
-end)
-]]
+        vim.api.nvim_create_autocmd("BufWipeout", {
+            buffer = tbl.buf,
+            callback = function()
+                vim.api.nvim_del_autocmd(autocmd)
+                set_offset(0)
+            end,
+            once = true,
+        })
+    end,
+    pattern = "NvimTree", -- or any other filetree's `ft`
+})

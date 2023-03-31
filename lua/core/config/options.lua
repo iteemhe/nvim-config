@@ -41,7 +41,11 @@ vim.opt.termguicolors = true
 --api.nvim_set_hl(0, "BarbecueEllipsis", {})
 
 -- treesitter-context
-api.nvim_set_hl(0, "TreesitterContextBottom", { underdouble = true, sp = "purple" })
+api.nvim_set_hl(
+    0,
+    "TreesitterContextBottom",
+    { underdouble = true, sp = "purple" }
+)
 
 -- diagnostic signs
 local signs = {
@@ -52,7 +56,10 @@ local signs = {
 }
 
 for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+    vim.fn.sign_define(
+        sign.name,
+        { texthl = sign.name, text = sign.text, numhl = "" }
+    )
 end
 
 -- indent-blankline
