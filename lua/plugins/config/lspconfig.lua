@@ -94,10 +94,10 @@ lspconfig.marksman.setup({
 })
 
 -- Scheme
-lspconfig.racket_langserver.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-})
+--lspconfig.racket_langserver.setup({
+--    on_attach = on_attach,
+--    capabilities = capabilities,
+--})
 
 -- LaTeX
 lspconfig.texlab.setup({
@@ -116,3 +116,9 @@ lspconfig.clojure_lsp.setup({
     on_attach = on_attach,
     capabilities = capabilities,
 })
+
+-- Prolog
+--lspconfig.prolog_ls.setup({
+--    on_attach = on_attach,
+--    capabilities = capabilities,
+--})
