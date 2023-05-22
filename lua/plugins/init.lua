@@ -40,6 +40,7 @@ local plugins = {
 
     {
         "romgrk/barbar.nvim",
+        commit = "3921d775d5db0c9bd42fe4026f68f762e2480475",
         -- event = "VeryLazy",
         lazy = false,
         config = function()
